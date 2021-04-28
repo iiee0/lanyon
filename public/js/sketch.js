@@ -1,157 +1,97 @@
-//Michael Lowe, January 2021
+let bf_url = "https://coolors.co/9b5de5-f15bb5-fee440-00bbf9-00f5d4";
+let url = bf_url.split("/");
+console.log(  url[3] );
+let new_color = url[3].split("-");
+let colors = [];
+for(let i= 0; i < new_color.length; i++) {
+  //console.log(colors[i]);
+//  colors[i] = colors; 
+ colors[i] = "#" + new_color[i];
+}
+// new_color = colors;
+console.log(colors);
 
-const generationSpeed = 50;
-
-//Increase for better quality images but slower generation
-const resolution = 3;
-
-const palettes = [
-	["#605063", "#248f8d", "#c2e5ca"],
-	["#FFBE40", "#AB3E5B", "#ECF081"],
-	["#233d4d", "#fe7f2d", "#fcc736"],
-	["#C8C8A9", "#83AF9B", "#F9CDAD"]
-];
-
-const visitedGrid = [];
-
-let colors, i, j, size, xSize, ySize, r, noiseScale;
+//let colors = ["#006d77", "#83c5be", "#edf6f9", "#ffddd2", "#e29578"];
 
 function setup() {
-	createCanvas(windowWidth, windowHeight);//min(windowWidth, windowHeight*2), windowHeight);
-	
-	colors = random(palettes);
-	size = random(random(8, 16), random(37, 50));
-	noiseScale = random(2e-3, 6e-3);
-	if (random() < 0.15) noiseScale = 1;
-	
-	i = 1;
-	j = 1;	
-	ySize = size / 2;
-	xSize = sqrt(3) / 2 * size;
-	r = 2 * ySize / sqrt(3);
-	
-	background("#E8F2FC");
-	pixelDensity(resolution);
-	noStroke();
-	
-	for (let ii = 0; ii < width / xSize + 2; ii++) {
-		visitedGrid[ii] = [];
-		for (let jj = 0; jj < height / ySize + 2; jj++) {
-			visitedGrid[ii][jj] = false;
-		}
-	}
-}
+  //カンバスサイズの設定
+  createCanvas(600, 600);
+  //カラーモードの指定（HSB推奨）
+  colorMode(HSB, 360, 100, 100, 100);
 
-function draw() {
+  //角度を弧度法から度数法に指定
+  angleMode(DEGREES);
+  //背景色を指定
+  background(0,0,0);
 
-	for (let iter = 0; iter < generationSpeed && j < visitedGrid[0].length; iter++) {
-		if (!visitedGrid[i][j]) {
-			let neighbours = [{
-				ii: i,
-				jj: j - 1,
-				fillColor: colors[i % 2 == j % 2 ? 0 : 1],
-			}, {
-				ii: i,
-				jj: j + 1,
-				fillColor: colors[i % 2 == j % 2 ? 1 : 0],
-			}, {
-				ii: i % 2 == j % 2 ? i + 1 : i - 1,
-				jj: j,
-				fillColor: colors[2]
-			}];
+  //画面上にたくさんの点を打つことで粒状感を背景に加える
+  //点の密度，個数はカンバスのサイズに対して何％打つかを考えてみる
+ for (let i = 0; i < width * height * 5 / 100; i++) {
+    //半透明の点，白でも黒でもOK．透明度は適宜調整する
+   fill(255);
+   stroke(255, 255, 255,70);
+   
+    let px = random(width);
+    let py = random(height);
+    point(px, py);
+  }
 
-			let horizontalTile = curlNoise(i * xSize * noiseScale, j * ySize * noiseScale) < 0.5;
-			if (horizontalTile) {
-				neighbours = [neighbours[2]].concat(shuffle([neighbours[0], neighbours[1]]));
-			} else {
-				neighbours = shuffle([neighbours[0], neighbours[1]]).concat([neighbours[2]])
-			}
+  let cells = int(random(3,12)); // 3~11までのランダムな数値
+  let offset = width / 10;
+  let margin = offset / 5;
+  let w = (width - offset * 2 - margin * (cells - 1)) / cells;
+  let h = (height - offset * 2 - margin * (cells - 1)) / cells;
 
-			for (let {
-					ii,
-					jj,
-					fillColor
-				} of neighbours) {
-				if (!visitedGrid[ii][jj]) {
-					fill(fillColor)
-					drawTriangle(i, j)
-					drawTriangle(ii, jj)
-					visitedGrid[i][j] = true;
-					visitedGrid[ii][jj] = true;
-					break
-				}
-			}
-		}
-		i++;
-		if (i >= visitedGrid.length - 1) {
-			i = 1;
-			j++;
-		}
-	}
-}
+  //格子状に図形を配置する基本的な方法
+  //2重for文で縦横方向にxyの位置を計算し，その位置を基準に図形を配置する
+  for (let j = 0; j < cells; j++) {
+    for (let i = 0; i < cells; i++) {
+      let x = offset + i * (w + margin);
+      let y = offset + j * (h + margin);
+      let cx = x + w / 2;
+      let cy = y + h / 2;
+      let d = w;
+      let rotate_num = int(random(4)); // 0〜3の整数
+      rotate_num = rotate_num * 90; // 0,90,180,270
+      let shape_num = int(random(4));
 
-function getTrianglePoints(i, j, scaleFactor = 1) {
-	
-	//subtract (1,1) from the coordinates so it starts off screen
-	i -= 1;
-	j -= 1;
-	
-	//whether it is a left-pointing or right-pointing triangle
-	const isPointingLeft = i % 2 == j % 2;
+      let c = random(colors);
 
-	let points = [];
-	let center = {
-		x: i * xSize + (isPointingLeft ? xSize / 3 : 0),
-		y: j * ySize
-	}
-	for (let angle = isPointingLeft ? TAU / 6 : 0; angle < TAU; angle += TAU / 3) {
-		points.push({
-			x: center.x + r * scaleFactor * cos(angle),
-			y: center.y + r * scaleFactor * sin(angle)
-		})
-	}
-	return points;
-}
+      push();
+      translate(cx, cy);
+      rotate(rotate_num);
+      if (random(100) > 50) {
+        noStroke();
+        fill(c);
+      } else {
+        noFill();
+        stroke(c);
+      }
+      if (shape_num == 0) {
+        //triangle(-d / 2, -d / 2, d / 2, -d / 2, -d / 2, d / 2);
 
-function drawTriangle(i, j) {
-	const points = getTrianglePoints(i, j, 1.043);
-
-	beginShape();
-	for (let point of points) {
-		vertex(point.x, point.y);
-	}
-	endShape();
-}
-
-function curlNoise(x, y) {
-	let eps = 10e-13;
-	x += 123.243
-	y += 234.123
-
-	//Find rate of change in X direction
-	let n1X = noise(x + eps, y, 0);
-	let n2X = noise(x - eps, y, 0);
-
-	//Average to find approximate derivative
-	let a = (n1X - n2X) / (2 * eps);
-
-	//Find rate of change in Y direction
-	let n1Y = noise(x, y + eps, 0);
-	let n2Y = noise(x, y - eps, 0);
-
-	//Average to find approximate derivative
-	let b = (n1Y - n2Y) / (2 * eps);
-
-	let angle = createVector(a, -b).heading();
-	if (angle < 0) angle += TAU;
-	return angle / TAU;
-}
-
-function keyPressed() {
-
-	if (key == "s") save();
-	if (key == " ") {
-		noiseSeed(random(10e9));
-		setup();
-	}
+        console.log(-d/2);
+        beginShape();
+vertex(0, -d/2+10);
+bezierVertex(0, -d/2-10, 40, -d/2+10, 0, -d/2+35);
+vertex(0, -d/2+10);
+bezierVertex(0, -d/2-10, -40, -d/2+10, 0, -d/2+35);
+endShape();
+        
+      } else if (shape_num == 1) {
+        rectMode(CENTER);
+        rect(0, 0, d, d);
+      } else if (shape_num == 2) {
+        ellipse(0, 0, d, d);
+      } else if (shape_num == 3) {
+        arc(-d / 2, -d / 2, d * 2, d * 2, 0, 90);
+      }
+      pop();
+    }
+  }
+  
+  let s = '';
+fill(255);
+  noStroke();
+text(s, 10, 10, 70, 80); // Text wraps within text box
 }
