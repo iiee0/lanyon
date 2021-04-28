@@ -7,7 +7,7 @@ title: 웹 개발 이력
 
 ### 경력
 
-
+<div class="exp">
 * HANA INS / Hana investment bank - cahnnel system team	2008.05 ~ 2010.11 (2years 7months)	Staff,	Website develop and manage 
 * Brandmarka / IT develop team	2010.12 ~ 2011.01 (2months)	Assistant manager,	Web develop and manage 
 * Metabrain / Develop team	2011.09 ~ 2011.12 (4months)	Assistant manager,	Wordpress Web develop and manage <br/><br/>
@@ -34,6 +34,7 @@ title: 웹 개발 이력
 19. FIPA  - government framework based management website develop <br/>
 20. IOTWP - government framework based management mobile website develop<br/>
 21. carset - carset story & daily develop<br/>
+</div>
 
 ### 교육 및 학력 
 
