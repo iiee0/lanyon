@@ -3,7 +3,7 @@ title:               Resume
 tagline:             'Portfolio & Resume'
 description:         'A reserved <a href="https://jekyllrb.com" target="_blank">Jekyll</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
 url:                 https://iiee0.github.io/portfolio/
-baseurl:             ''
+baseurl:             'https://iiee0.github.io/portfolio/'
 paginate:            5
 permalink:           pretty
 
