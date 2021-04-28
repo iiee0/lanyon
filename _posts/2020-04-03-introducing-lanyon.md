@@ -44,7 +44,7 @@ title: 웹 개발 이력
 			
  * Etc<br/>
 				Emily Carr Insititute -  Contents Technology Education 200509-200512</br>
-				OCP 10g Education 200809-200810 
+			
 </div>
 ### 자격증
 <div class="exp">
