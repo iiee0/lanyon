@@ -4,7 +4,7 @@ title: P5.js
 ---
   <script src="/resume/public/js/p5.js"></script>
   <!-- <script src="../addons/p5.sound.js"></script> -->
-  <script src="/resume/public/sketch.js"></script>
+  <script src="/resume/public/js/sketch.js"></script>
 
   <main></main>
 <p class="message">
