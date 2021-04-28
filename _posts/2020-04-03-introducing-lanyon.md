@@ -37,23 +37,23 @@ title: 웹 개발 이력
 </div>
 
 ### 교육 및 학력 
-
- * Sangmyung Women High school		200302	 <br/>	
- * Vancouver Film School		Sound Design for Visual Media		200712<br/>		
+<div class="exp">
+ * Sangmyung Women High school		200302	 
+ * Vancouver Film School		Sound Design for Visual Media		200712	
  * Sungshin Women University	Multimedia Engineering	200702	
 			
- * Etc <br/><br/>
+ * Etc<br/>
 				Emily Carr Insititute -  Contents Technology Education 200509-200512</br>
 				OCP 10g Education 200809-200810 
-
+</div>
 ### 자격증
-
+<div class="exp">
   * Informaation Process Engineering	20060821
   * SCJP	20081228
   * OCP10g	20091123
 
 
 ### 언어 
-
+<div class="exp">
   * English - IELTS 5
   * Japanese - JLPT 3 
