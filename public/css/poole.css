@@ -431,6 +431,6 @@ a.pagination-item:hover {
 
   /* ******************************************************** */
   .exp{
-    font-size: 11px;
+    font-size: 11px !important;
   }
 }
