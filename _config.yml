@@ -1,7 +1,7 @@
 # Setup
 title:               Resume
 tagline:             'Portfolio & Resume'
-description:         'jiunsu2@naver.com'
+description:         'Made by <a href="https://iiee0.github.io/resume" target="_blank">@jiunsuk</a>.'
 url:                 'https://iiee0.github.io'
 baseurl:             '/resume'
 paginate:            5
