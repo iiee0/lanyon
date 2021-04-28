@@ -8,11 +8,11 @@ title: 웹 개발 이력
 ### 경력
 
 <div class="exp">
-* HANA INS / Hana investment bank - cahnnel system team	2008.05 ~ 2010.11 (2years 7months)	Staff,	Website develop and manage 
-* Brandmarka / IT develop team	2010.12 ~ 2011.01 (2months)	Assistant manager,	Web develop and manage 
-* Metabrain / Develop team	2011.09 ~ 2011.12 (4months)	Assistant manager,	Wordpress Web develop and manage <br/><br/>
-* Hyundai Asan Turkey / IT system	2012.07 ~ 2013.06 (1year)	Staff	 MMLS system develop and manage <br/><br/>
-* Freelancer projects ( 21 projects ) <br/><br/>
+* HANA INS / Hana investment bank - cahnnel system team	2008.05 ~ 2010.11 (2years 7months)	Staff,	Website develop and manage <br/>
+* Brandmarka / IT develop team	2010.12 ~ 2011.01 (2months)	Assistant manager,	Web develop and manage <br/>
+* Metabrain / Develop team	2011.09 ~ 2011.12 (4months)	Assistant manager,	Wordpress Web develop and manage <br/>
+* Hyundai Asan Turkey / IT system	2012.07 ~ 2013.06 (1year)	Staff	 MMLS system develop and manage <br/>
+* Freelancer projects ( 21 projects ) <br/>
 1. SK communications / global development 2 team  , Language resource tool develop and manage<br/>
 2. KB credit card mobile web develop, event parts <br/>
 3. Micro sites develop : 3D TV, refrigerator develop <br/>
