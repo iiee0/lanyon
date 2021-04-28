@@ -37,21 +37,22 @@ title: 웹 개발 이력
 
 ### 교육 및 학력 
 
-In addition to the features of Poole, Lanyon adds the following:
-
-* Toggleable sliding sidebar (built with only CSS) via **☰** link in top corner
-* Sidebar includes support for textual modules and a dynamically generated navigation with active link support
-* Two orientations for content and sidebar, default (left sidebar) and [reverse](https://github.com/poole/lanyon#reverse-layout) (right sidebar), available via `<body>` classes
-* [Eight optional color schemes](https://github.com/poole/lanyon#themes), available via `<body>` classes
-
-[Head to the readme](https://github.com/poole/lanyon#readme) to learn more.
+ * Sangmyung Women High school		200302	 <br/>	
+ * Vancouver Film School		Sound Design for Visual Media		200712<br/>		
+ * Sungshin Women University	Multimedia Engineering	200702	
+			
+ * Etc <br/><br/>
+				Emily Carr Insititute -  Contents Technology Education 200509-200512</br>
+				OCP 10g Education 200809-200810 
 
 ### 자격증
 
-Lanyon is by preference a forward-thinking project. In addition to the latest versions of Chrome, Safari (mobile and desktop), and Firefox, it is only compatible with Internet Explorer 9 and above.
+  * Informaation Process Engineering	20060821
+  * SCJP	20081228
+  * OCP10g	20091123
 
-### Download
 
-Lanyon is developed on and hosted with GitHub. Head to the <a href="https://github.com/poole/lanyon">GitHub repository</a> for downloads, bug reports, and features requests.
+### 언어 
 
-Thanks!
+  * English - IELTS 5
+  * Japanese - JLPT 3 
